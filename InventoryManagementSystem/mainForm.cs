@@ -42,5 +42,20 @@ namespace InventoryManagementSystem
         {
             openChildForm(new customerForm());
         }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            openChildForm(new categoryForm());
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            openChildForm(new productForm());
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            openChildForm(new orderForm());
+        }
     }
 }

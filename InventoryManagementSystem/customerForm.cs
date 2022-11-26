@@ -32,7 +32,7 @@ namespace InventoryManagementSystem
             while (dr.Read())
             {
                 i++;
-                dgvCustomer.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                dgvCustomer.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
             }
             dr.Close();
             conn.Close();
@@ -53,9 +53,9 @@ namespace InventoryManagementSystem
             if (colName =="Edit")
             {
                 customerModuleForm customerModule = new customerModuleForm();
-                customerModule.lblCId.Text =dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
-                customerModule.txtCName.Text = dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
-                customerModule.txtCPhone.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
+                customerModule.lblCId.Text =dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
+                customerModule.txtCName.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
+                customerModule.txtCPhone.Text = dgvCustomer.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 customerModule.btnSave.Enabled=false;
                 customerModule.btnUpdate.Enabled=true;
@@ -68,10 +68,10 @@ namespace InventoryManagementSystem
                 if (MessageBox.Show("Are you want to delete this user?", "Delete User Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     conn.Open();
-                    cmd = new SqlCommand("DELETE FROM customerTable WHERE cid LIKE '" + dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString() + "' ", conn);
+                    cmd = new SqlCommand("DELETE FROM customerTable WHERE cid LIKE '" + dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString() + "' ", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("User Record has been deleted!");
+                    MessageBox.Show("Customer Record has been deleted!");
 
                 }
             }
