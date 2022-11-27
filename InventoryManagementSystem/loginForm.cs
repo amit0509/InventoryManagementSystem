@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace InventoryManagementSystem
 {
     public partial class loginForm : Form
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Amit\Documents\adbMS.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
         public loginForm()
         {
             InitializeComponent();
@@ -36,6 +40,36 @@ namespace InventoryManagementSystem
             if (MessageBox.Show("Exit Application", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cmd = new SqlCommand("SELECT * FROM userTable WHERE username=@username AND password=@password", conn);
+                cmd.Parameters.AddWithValue("@username", txtName.Text);
+                cmd.Parameters.AddWithValue("@password", txtPass.Text);
+
+                conn.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                if(dr.HasRows)
+                {
+                    MessageBox.Show("Welcome "+dr["fullname"].ToString()+"!", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mainForm main = new mainForm();
+                    this.Hide();
+                    main.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid USer Name or Password!", "Access Denied", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

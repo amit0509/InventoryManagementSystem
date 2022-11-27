@@ -260,7 +260,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(550, 263);
+            this.label7.Location = new System.Drawing.Point(550, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(222, 32);
             this.label7.TabIndex = 0;
@@ -269,7 +269,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(387, 28);
+            this.pictureBox2.Location = new System.Drawing.Point(387, 60);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(564, 195);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -280,7 +280,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(560, 309);
+            this.label8.Location = new System.Drawing.Point(560, 314);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(205, 25);
             this.label8.TabIndex = 2;
@@ -290,7 +290,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(560, 343);
+            this.label9.Location = new System.Drawing.Point(560, 348);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(164, 25);
             this.label9.TabIndex = 3;
@@ -300,7 +300,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(560, 377);
+            this.label10.Location = new System.Drawing.Point(560, 382);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(141, 25);
             this.label10.TabIndex = 4;
@@ -310,7 +310,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(560, 411);
+            this.label11.Location = new System.Drawing.Point(560, 416);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(176, 25);
             this.label11.TabIndex = 5;
@@ -322,22 +322,22 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(12, 566);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 20);
+            this.label12.Size = new System.Drawing.Size(176, 20);
             this.label12.TabIndex = 6;
-            this.label12.Text = "Github Repo Link:";
+            this.label12.Text = "View Source Code at :";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.Purple;
-            this.linkLabel1.Location = new System.Drawing.Point(161, 566);
+            this.linkLabel1.Location = new System.Drawing.Point(189, 566);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(238, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(461, 20);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Tag = "https://github.com/amit0509/InventoryManagementSystem.git";
-            this.linkLabel1.Text = "Inventory Management Syatem";
+            this.linkLabel1.Tag = "";
+            this.linkLabel1.Text = "https://github.com/amit0509/InventoryManagementSystem.git";
             // 
             // mainForm
             // 
