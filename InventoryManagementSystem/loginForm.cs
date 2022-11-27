@@ -63,7 +63,7 @@ namespace InventoryManagementSystem
                 }
                 else
                 {
-                    MessageBox.Show("Invalid USer Name or Password!", "Access Denied", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid User Name or Password!", "Access Denied", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 conn.Close();
             }
