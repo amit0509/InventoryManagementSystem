@@ -77,5 +77,51 @@ namespace InventoryManagementSystem
         {
             loadOrder();
         }
+
+        private void loadBtn_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            double total=0;
+            DateTime from = datePicker1.Value;
+            DateTime to = datePicker2.Value;
+            dgvOrder.Rows.Clear();
+            cmd = new SqlCommand("SELECT oid, odate, O.pid, P.pname, O.cid, C.cname, qty, price, total FROM orderTable AS O JOIN customerTable AS C ON O.cid=C.cid JOIN productTable AS P ON O.pid=P.pid WHERE odate BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "'", conn);
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvOrder.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("dd/mm/yyyy"), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                total += Convert.ToInt32(dr[8].ToString());
+            }
+            dr.Close();
+            conn.Close();
+
+            lblQty.Text = i.ToString();
+            lblTotal.Text = total.ToString();
+        }
+
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            double total = 0;
+
+            dgvOrder.Rows.Clear();
+            cmd = new SqlCommand("SELECT oid, odate, O.pid, P.pname, O.cid, C.cname, qty, price, total FROM orderTable AS O JOIN customerTable AS C ON O.cid=C.cid JOIN productTable AS P ON O.pid=P.pid ", conn);
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvOrder.Rows.Add(i, dr[0].ToString(), Convert.ToDateTime(dr[1].ToString()).ToString("dd/mm/yyyy"), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                total += Convert.ToInt32(dr[8].ToString());
+            }
+            dr.Close();
+            conn.Close();
+
+            lblQty.Text = i.ToString();
+            lblTotal.Text = total.ToString();
+        }
     }
 }

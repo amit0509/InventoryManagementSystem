@@ -47,12 +47,13 @@ namespace InventoryManagementSystem
             {
                 if (MessageBox.Show("Do you want to save this user", "Saving....", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("INSERT INTO productTable(pname,pqty,pprice,pdescription,pcategory)VALUES(@pname,@pqty,@pprice,@pdescription,@pcategory)", conn);
+                    cmd = new SqlCommand("INSERT INTO productTable(pname,pqty,pprice,pdescription,pcategory,pdate)VALUES(@pname,@pqty,@pprice,@pdescription,@pcategory,@pdate)", conn);
                     cmd.Parameters.AddWithValue("@pname", txtPName.Text);
                     cmd.Parameters.AddWithValue("@pqty", Convert.ToInt32(txtPQty.Text));
                     cmd.Parameters.AddWithValue("@pprice", Convert.ToInt32(txtPPrice.Text));
                     cmd.Parameters.AddWithValue("@pdescription", txtPDes.Text);
                     cmd.Parameters.AddWithValue("@pcategory", comboCat.Text);
+                    cmd.Parameters.AddWithValue("@pdate", dateProduct.Value);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -88,12 +89,14 @@ namespace InventoryManagementSystem
             {
                 if (MessageBox.Show("Do you want to update this Product record", "Updating....", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("UPDATE productTable SET pname=@pname, pqty=@pqty, pprice=@pprice, pdescription=@pdescription, pcategory=@pcategory WHERE pid LIKE'" + lblPId.Text + "'", conn);
+                    cmd = new SqlCommand("UPDATE productTable SET pname=@pname, pqty=@pqty, pprice=@pprice, pdescription=@pdescription, pcategory=@pcategory, pdate=@pdate WHERE pid LIKE'" + lblPId.Text + "'", conn);
                     cmd.Parameters.AddWithValue("@pname", txtPName.Text);
                     cmd.Parameters.AddWithValue("@pqty", Convert.ToInt32(txtPQty.Text));
                     cmd.Parameters.AddWithValue("@pprice", Convert.ToInt32(txtPPrice.Text));
                     cmd.Parameters.AddWithValue("@pdescription", txtPDes.Text);
                     cmd.Parameters.AddWithValue("@pcategory", comboCat.Text);
+                    cmd.Parameters.AddWithValue("@pdate", dateProduct.Value);
+
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

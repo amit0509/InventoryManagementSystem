@@ -46,13 +46,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboCat = new System.Windows.Forms.ComboBox();
             this.lblPId = new System.Windows.Forms.Label();
+            this.dateProduct = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Magenta;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.pictureBoxClose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -60,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 58);
+            this.panel1.Size = new System.Drawing.Size(626, 58);
             this.panel1.TabIndex = 12;
             // 
             // pictureBoxClose
@@ -114,7 +116,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(454, 335);
+            this.btnClear.Location = new System.Drawing.Point(454, 367);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(107, 38);
@@ -131,7 +133,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(341, 335);
+            this.btnUpdate.Location = new System.Drawing.Point(341, 367);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(107, 38);
@@ -148,7 +150,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(229, 335);
+            this.btnSave.Location = new System.Drawing.Point(229, 367);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(107, 38);
@@ -236,18 +238,41 @@
             // lblPId
             // 
             this.lblPId.AutoSize = true;
-            this.lblPId.Location = new System.Drawing.Point(91, 335);
+            this.lblPId.Location = new System.Drawing.Point(91, 367);
             this.lblPId.Name = "lblPId";
             this.lblPId.Size = new System.Drawing.Size(67, 16);
             this.lblPId.TabIndex = 27;
             this.lblPId.Text = "Product Id";
             this.lblPId.Visible = false;
             // 
+            // dateProduct
+            // 
+            this.dateProduct.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateProduct.CustomFormat = "dd/MM/yyyy";
+            this.dateProduct.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateProduct.Location = new System.Drawing.Point(180, 318);
+            this.dateProduct.Name = "dateProduct";
+            this.dateProduct.Size = new System.Drawing.Size(381, 22);
+            this.dateProduct.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(117, 318);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 18);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Date:";
+            // 
             // productModuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 405);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(626, 442);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateProduct);
             this.Controls.Add(this.lblPId);
             this.Controls.Add(this.comboCat);
             this.Controls.Add(this.panel1);
@@ -294,5 +319,7 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox comboCat;
         public System.Windows.Forms.Label lblPId;
+        public System.Windows.Forms.DateTimePicker dateProduct;
+        private System.Windows.Forms.Label label7;
     }
 }

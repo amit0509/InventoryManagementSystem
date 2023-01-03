@@ -32,7 +32,7 @@ namespace InventoryManagementSystem
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Customer has been saved");
+                    MessageBox.Show("Category has been saved");
                     Clear();
                 }
             }

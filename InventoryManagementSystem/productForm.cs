@@ -25,13 +25,13 @@ namespace InventoryManagementSystem
         {
             int i = 0;
             dgvProduct.Rows.Clear();
-            cmd = new SqlCommand("SELECT * FROM productTable WHERE CONCAT(pid, pname, pprice, pdescription, pcategory) LIKE '%"+txtSearch.Text+"%'", conn);
+            cmd = new SqlCommand("SELECT * FROM productTable WHERE CONCAT(pid, pname, pprice, pdescription, pcategory, pdate) LIKE '%"+txtSearch.Text+"%'", conn);
             conn.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), Convert.ToDateTime(dr[6].ToString()).ToString("dd/MM/yyyy"));
             }
             dr.Close();
             conn.Close();
@@ -84,6 +84,42 @@ namespace InventoryManagementSystem
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             loadProduct();
+        }
+
+        private void loadBtn_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            DateTime from = datePicker1.Value;
+            DateTime to = datePicker2.Value;
+            dgvProduct.Rows.Clear();
+            cmd = new SqlCommand("SELECT * FROM productTable WHERE pdate BETWEEN '" + from.ToString("yyyy-MM-dd") + "' AND '" + to.ToString("yyyy-MM-dd") + "'", conn);
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), Convert.ToDateTime(dr[6].ToString()).ToString("dd/MM/yyyy"));
+            }
+            dr.Close();
+            conn.Close();
+
+           
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            dgvProduct.Rows.Clear();
+            cmd = new SqlCommand("SELECT * FROM productTable ", conn);
+            conn.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                i++;
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), Convert.ToDateTime(dr[6].ToString()).ToString("dd/MM/yyyy"));
+            }
+            dr.Close();
+            conn.Close();
         }
     }
 }

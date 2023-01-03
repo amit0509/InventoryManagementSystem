@@ -57,5 +57,6 @@ namespace InventoryManagementSystem
         {
             openChildForm(new orderForm());
         }
+
     }
 }
